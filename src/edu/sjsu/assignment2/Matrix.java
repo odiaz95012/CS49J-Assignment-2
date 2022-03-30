@@ -1,5 +1,7 @@
 package edu.sjsu.assignment2;
 
+import javax.swing.*;
+import java.security.InvalidParameterException;
 import java.util.Arrays;
 
 public class Matrix {
@@ -9,17 +11,27 @@ public class Matrix {
         this.array = array;
     }
     public int[][] getMatrix(){ return array; }
-    public Matrix multiply(Matrix other){
+    public Matrix multiply(Matrix other)throws Exception{
+        //multiplies a m x n matrix by a n x p matrix
         int m = array.length;
         int n = array[0].length;
         int p = other.array[0].length;
-        Matrix result = new Matrix(new int[m][n]);
-        for(int row = 0; row < result.array.length; row++){
-            for(int col = 0; col < result.array[row].length; col++){
-                result.array[row][col] = multiplyMatrixCell(array, other.array,row,col);
+
+        if (other.array.length != n){
+            Exception InvalidParameterException = null;
+            throw  InvalidParameterException;
+        }
+
+        int [][] result = new int[m][p];
+        for(int row = 0; row <= m - 1; row++){
+            for(int col = 0; col <=  p - 1 ; col++){
+                for (int k = 0; k <=  n - 1; k ++){
+                    result[row][col] = multiplyMatrixCell(array, other.array, row, col);
+                }
+
             }
         }
-        return result;
+        return new Matrix(result);
     }
     private static int multiplyMatrixCell(int[][] firstMatrix, int[][] secondMatrix, int row, int col){
         //NOTE: algorithm from https://www.baeldung.com/java-matrix-multiplication
