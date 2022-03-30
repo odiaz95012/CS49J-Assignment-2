@@ -8,7 +8,7 @@ public class Matrix {
     public Matrix(int[][] array) {
         this.array = array;
     }
-    public String getArray(){
+    public String getMatrix(){
         return Arrays.deepToString(array);
     }
     public Matrix multiply(Matrix other){
