@@ -8,19 +8,7 @@ public class Matrix {
     public Matrix(int[][] array) {
         this.array = array;
     }
-    public int[][] getMatrix(){
-        // Algorithm from https://stackoverflow.com/questions/20519100/java-how-to-return-in-a-method-multidimensional-array-without-aliasing
-            int[][]newArr=new int[this.array.length][this.array[0].length];
-            for(int i=0;i<this.array.length;i++)
-            {
-                for(int j=0;j<this.array[0].length;j++)
-                {
-                    newArr[i][j]=this.array[i][this.array[0].length-1-j];
-                }
-
-            }
-            return newArr; // rerunning the array witch created inside this method
-    }
+    public int[][] getMatrix(){ return array; }
     public Matrix multiply(Matrix other){
         int m = array.length;
         int n = array[0].length;
