@@ -7,7 +7,7 @@ public class MyRecursion {
     /**
      * @param text - the string we're traversing to find the starting position of String 2.
      * @param str - The string we're trying to find the starting position.
-     * @return
+     * @return index - returns the index of the starting position of String 2 in String 1.
      */
     public static int indexOf(String text, String str){
         return indexOf(text, str,0);
